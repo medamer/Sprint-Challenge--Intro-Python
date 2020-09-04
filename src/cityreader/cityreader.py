@@ -21,7 +21,11 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    f = open("./cities.csv", "r")
+    foo = f.read()
+    for i in range(len(foo)):
+      cities.extend([foo['city'][i], float(foo['lat'][i]), float(foo['lon'][i])])
+    f.close
     return cities
 
 cityreader(cities)
@@ -60,7 +64,7 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
-
+"""
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
@@ -69,3 +73,4 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # the specified coordinates.
 
   return within
+"""
